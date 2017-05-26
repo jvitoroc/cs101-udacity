@@ -40,10 +40,8 @@
 # 4 STARS: 0 < lines <= 3
 
 def print_abacus(value):
-    countAb = 1
-    abacus = ""
     zeros = 0
-    while(countAb <= 10):
+    for countAb in range(1,11):
         abacus = "|"
         if(value >= 10**(10-countAb)):
             count = 0
@@ -72,7 +70,6 @@ def print_abacus(value):
         else:
             abacus += "00000*****   |"
             print (abacus)
-        countAb = countAb + 1
         zeros=0
 
 
