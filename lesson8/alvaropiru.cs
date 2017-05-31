@@ -1,4 +1,14 @@
-static double calcularINSS(double sal)
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static double calcularINSS(double sal)
         {
             double salario = sal;
             if (salario <= 1659.38f)
@@ -22,13 +32,13 @@ static double calcularINSS(double sal)
         static double calcularHorasExtras(double sal, int horas)
         {
 
-            return (((sal / 220) * 0.5) + (sal / 220)) * horas;
+            return sal - ((((sal / 220) * 0.5) + (sal / 220)) * horas);
         }
 
         static double calcularAdicionalNoturno(double sal, int horas)
         {
 
-            return (((sal / 220) * 0.2) + (sal / 220)) * horas;
+            return sal - ((((sal / 220) * 0.2) + (sal / 220)) * horas);
         }
 
         static double calcularValeTransporte(double sal)
@@ -131,10 +141,18 @@ static double calcularINSS(double sal)
             } while (test == false);
 
             double salarioResultado = salariob;
+            salarioResultado += calcularAdicionalNoturno(salariob, horasExtrasNoturno);
+            salarioResultado += calcularHorasExtras(salariob, horasExtras);
+            salarioResultado += (salariob * (insalu / 100));
+            salarioResultado += (salariob * (pericu / 100));
+            salarioResultado += (salariob * (gratificacao / 100));//calcular insalubridade
             salarioResultado = calcularINSS(salarioResultado);
             salarioResultado = calcularIRPF(salarioResultado);
             salarioResultado = calcularValeTransporte(salarioResultado);
-            salarioResultado = calcularAdicionalNoturno(salarioResultado, horasExtrasNoturno);
-            salarioResultado = calcularHorasExtras(salarioResultado, horasExtras);
+                
             Console.WriteLine(salarioResultado);
             Console.ReadKey();
+            
+        }
+    }
+}
