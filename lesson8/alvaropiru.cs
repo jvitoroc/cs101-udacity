@@ -31,6 +31,12 @@ static double calcularINSS(double sal)
             return (((sal / 220) * 0.2) + (sal / 220)) * horas;
         }
 
+        static double calcularValeTransporte(double sal)
+        {
+
+            return sal - (sal * 0.06);
+        }
+
         static double calcularIRPF(double sal)
         {
             double salario = sal;
@@ -60,7 +66,8 @@ static double calcularINSS(double sal)
         {
 
             double salariob;
-            double horasExtras;
+            int horasExtras;
+            int horasExtrasNoturno;
             double gratificacao;
             double insalu;
             double pericu;
@@ -91,7 +98,14 @@ static double calcularINSS(double sal)
             do
             {
                 Console.WriteLine("Horas extras realizadas no mes");
-                test = double.TryParse(Console.ReadLine(), out horasExtras);
+                test = int.TryParse(Console.ReadLine(), out horasExtras);
+
+            } while (test == false);
+
+            do
+            {
+                Console.WriteLine("Adicional noturno, horas");
+                test = int.TryParse(Console.ReadLine(), out horasExtrasNoturno);
 
             } while (test == false);
 
@@ -116,4 +130,11 @@ static double calcularINSS(double sal)
 
             } while (test == false);
 
+            double salarioResultado = salariob;
+            salarioResultado = calcularINSS(salarioResultado);
+            salarioResultado = calcularIRPF(salarioResultado);
+            salarioResultado = calcularValeTransporte(salarioResultado);
+            salarioResultado = calcularAdicionalNoturno(salarioResultado, horasExtrasNoturno);
+            salarioResultado = calcularHorasExtras(salarioResultado, horasExtras);
+            Console.WriteLine(salarioResultado);
             Console.ReadKey();
