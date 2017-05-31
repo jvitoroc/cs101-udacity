@@ -1,14 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp3
-{
-    class Program
-    {
-        static double calcularINSS(double sal)
+static double calcularINSS(double sal)
         {
             double salario = sal;
             if (salario <= 1659.38f)
@@ -32,7 +22,13 @@ namespace ConsoleApp3
         static double calcularHorasExtras(double sal, int horas)
         {
 
-            return (((sal / 220) * 0.5) + (sal / 220))*horas;
+            return (((sal / 220) * 0.5) + (sal / 220)) * horas;
+        }
+
+        static double calcularAdicionalNoturno(double sal, int horas)
+        {
+
+            return (((sal / 220) * 0.2) + (sal / 220)) * horas;
         }
 
         static double calcularIRPF(double sal)
@@ -67,6 +63,7 @@ namespace ConsoleApp3
             double horasExtras;
             double gratificacao;
             double insalu;
+            double pericu;
             string nome;
             string matricula;
             string cargo;
@@ -115,12 +112,8 @@ namespace ConsoleApp3
             do
             {
                 Console.WriteLine("Adicional de periculosidade");
-                test = double.TryParse(Console.ReadLine(), out insalu);
+                test = double.TryParse(Console.ReadLine(), out pericu);
 
             } while (test == false);
 
             Console.ReadKey();
-            
-        }
-    }
-}
