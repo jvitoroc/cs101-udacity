@@ -1,3 +1,5 @@
+#I created a transpose function to help me solve this problem smartly.
+
 # THREE GOLD STARS
 
 # Sudoku [http://en.wikipedia.org/wiki/Sudoku]
