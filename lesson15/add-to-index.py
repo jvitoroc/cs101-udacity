@@ -16,7 +16,6 @@
 index = []
 
 def add_to_index(index,keyword,url):
-    lenght = len(index)
     for key in index:
         if(key[0] == keyword):
             key[1].append(url)
