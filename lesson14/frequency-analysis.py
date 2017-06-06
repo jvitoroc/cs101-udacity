@@ -26,14 +26,13 @@ def find_occurencies(text,t):
     
 
 def freq_analysis(message):
-    count = 0
+    ascii = 97
     freq_list = []
     lenght = len(message)
-    while count < lenght:
-        freq_list.append(find_occurencies(message,message[count])*1.0/lenght)
-        count += 1
+    while ascii <= 122:
+        freq_list.append(find_occurencies(message,chr(ascii))*1.0/lenght)
+        ascii += 1
     return freq_list
-
 
 
 #Tests
