@@ -29,12 +29,12 @@ def convert_seconds(secs):
     secs = secs%3600
     minutes = int(secs/60)
     secs= secs%60
-    output = str(hrs)
+    output = str(hours)
     if hours==1:
         output = output+" hour, "
     else:
         output = output+" hours, "
-    output = output+str(mins)
+    output = output+str(minutes)
     if minutes==1:
         output = output+" minute, "
     else:
