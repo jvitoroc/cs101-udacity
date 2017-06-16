@@ -25,7 +25,6 @@
 # returned list should be a list of the numbers at the corresponding row in the
 # triangle.
 
-
 def triangle(n):
     rows = [[1],[1,1]]
     for i in range(2,n):
